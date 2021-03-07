@@ -32,6 +32,10 @@ build/
 ### VS Code ###
 .vscode/
 
+### maven
 .mvn/
 mvnw
 mvnw.cmd
+
+### viswath property profile
+/src/main/resources/application-viswath.properties
