@@ -2,6 +2,7 @@ package com.buysync.buysynccore.repository;
 
 import com.buysync.buysynccore.domain.Item;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -27,6 +28,6 @@ public class ItemRepositoryTests {
         Item item1 = itemRepository.getOne("test");
 
         log.info(item1.toString());
-        Assert.notNull(item1);
+        Assertions.assertNotNull(item1);
     }
 }
