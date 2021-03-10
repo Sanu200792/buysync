@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -16,12 +17,14 @@ public class ItemServiceImpl implements ItemService {
     private final ItemRepository itemRepository;
 
     @Override
+    @Transactional
     public Item save(Item item) {
         log.info("Saving item==[{}].", item);
-        return itemRepository.save(item);
+        return itemRepository.saveAndFlush(item);
     }
 
     @Override
+    @Transactional
     public List<Item> getAllItems() {
         log.info("Getting all items.");
         return itemRepository.findAll();
